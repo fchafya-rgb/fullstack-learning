@@ -8,7 +8,22 @@
 Вывести результат в консоль.
 */
 
-let subMonth = 500;
-let totalPrice = subMonth * 6;
+/*
+Тикет #1, часть 2 — уточнение от заказчика
 
-console.log(`Стоимость подписки на пол года: ${totalPrice} руб`);
+"Слушай, а если клиент берёт подписку сразу на год (12 месяцев) — дай ему скидку 15% от общей суммы. На полгода и меньше скидки нет."
+*/
+
+
+let subMonth = 500;
+let totalMonth = 12;
+
+
+if (totalMonth >= 12 ){
+    subMonth = subMonth * 0.85;
+}
+
+
+let totalPrice = subMonth * totalMonth;
+
+console.log(`Стоимость подписки: ${totalPrice} руб`);
