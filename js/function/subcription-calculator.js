@@ -13,24 +13,27 @@
 
 "А давай ещё добавим: если клиент — студент (у нас есть пометка в системе), даём ДОПОЛНИТЕЛЬНУЮ скидку 10% от уже посчитанной
 (со скидкой за год, если она была применена) суммы. Эта скидка не зависит от срока подписки — действует всегда, если студент."
+
+
+Тикет #1, часть 4 — теперь заказчик просит функцию
+
+"Так, у нас этот расчёт цены скоро понадобится в нескольких местах приложения — и на странице оформления подписки,
+ и в админке для пересчёта. Обёрни всю эту логику в функцию, чтобы можно было её переиспользовать."
 */
 
 
 
-
-let subMonth = 500;
-let totalMonth = 11;
-let aStudent = true;
-
+function totalPrice(totalMonth, aStudent, subMonth){
+let clearSubMonth = subMonth;
 
 if (totalMonth >= 12 ) {
-    subMonth = subMonth * 0.85;
+    clearSubMonth = clearSubMonth * 0.85;
 }
 
 if (aStudent) {
-    subMonth = subMonth * 0.9
+    clearSubMonth = clearSubMonth * 0.9;
 }
-
-
-let totalPrice = subMonth * totalMonth;
-console.log(`Стоимость подписки: ${totalPrice} руб`);
+return clearSubMonth * totalMonth;
+}
+let total = totalPrice(12, true, 500);
+console.log(`Стоимость подписки: ${total} руб`);
