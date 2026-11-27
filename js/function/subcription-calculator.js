@@ -42,7 +42,23 @@ if (totalMonth >= 12 ) {
 if (aStudent) {
     clearSubMonth = clearSubMonth * 0.9;
 }
+
 return clearSubMonth * totalMonth;
 }
+
+
+function corpPrice(countPeople, totalMonth, aStudent, subMonth) {
+    let countPrice = totalPrice(totalMonth, aStudent, subMonth)
+    let total = countPrice * countPeople;
+
+    if (countPeople >= 10 ) {
+        total = total * 0.95;
+    }
+    return total;
+}
+
 let total = totalPrice(12, true, 500);
 console.log(`Стоимость подписки: ${total.toFixed(2)} руб из них НДС: ${(total * (NDS / (1 + NDS))).toFixed(2)}`);
+
+let corpTotalPrice = corpPrice(9,12,true,500);
+console.log(`Корпаративная стоимость: ${corpTotalPrice.toFixed(2)}`);
