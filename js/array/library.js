@@ -42,9 +42,7 @@ let priceLearnBook = 150;
 let priceBook = 0;
 
 
-let countDaysPenalty = 0;
-
-countDaysPenalty = totalDaysBook - getDaysBook;
+let countDaysPenalty = totalDaysBook - getDaysBook;
 
 if ( hasBook === 0 ){
     penaltySum = penaltyNormalBook;
